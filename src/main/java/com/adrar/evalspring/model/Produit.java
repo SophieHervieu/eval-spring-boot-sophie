@@ -22,6 +22,10 @@ public class Produit {
     @Min(value=1, message="Le prix du produit doit être d'au moins 1 euro")
     private Double prix;
 
+    @ManyToOne
+    @JoinColumn(name="produit_categorie")
+    private Categorie categorie;
+
     public Produit() {}
 
     public Produit(String nom, Double prix) {
