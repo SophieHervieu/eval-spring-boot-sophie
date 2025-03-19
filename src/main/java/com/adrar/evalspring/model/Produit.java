@@ -3,6 +3,7 @@ package com.adrar.evalspring.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -18,7 +19,7 @@ public class Produit {
     private String nom;
 
     @Column(name="prix", nullable=false)
-    @NotBlank(message="Le prix du produit doit être renseigné")
+    @NotNull(message="Le prix du produit doit être renseigné")
     @Min(value=1, message="Le prix du produit doit être d'au moins 1 euro")
     private Double prix;
 
@@ -28,9 +29,10 @@ public class Produit {
 
     public Produit() {}
 
-    public Produit(String nom, Double prix) {
+    public Produit(String nom, Double prix, Categorie categorie) {
         this.nom = nom;
         this.prix = prix;
+        this.categorie = categorie;
     }
 
     public void setId(Integer id) {
