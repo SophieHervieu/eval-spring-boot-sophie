@@ -21,6 +21,10 @@ public class ProduitService {
         return produitRepository.findAll();
     }
 
+    public Long countProduits() {
+        return produitRepository.count();
+    }
+
     public Produit findProduitById(Integer id) {
         if(!produitRepository.existsById(id)) {
             throw new ProduitNotFoundException(id);

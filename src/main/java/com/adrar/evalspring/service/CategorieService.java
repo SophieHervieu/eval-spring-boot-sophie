@@ -28,6 +28,10 @@ public class CategorieService {
         return categories;
     }
 
+    public Long countAllCategories() {
+        return categorieRepository.count();
+    }
+
     public Categorie findCategorieById(Integer id) {
         if(!categorieRepository.existsById(id)) {
             throw new CategorieNotFoundException(id);
